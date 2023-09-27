@@ -12,22 +12,19 @@ export class AuthService {
     private readonly http: HttpClient
   ) { }
 
-  authenticate(username: string, password: string): Observable<any> {
+  login(user: User): Observable<any> {
     const headers: { [header: string]: string | string[] } = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
     };
-    return this.http.post('https://127.0.0.1:8000/api/auth', {username, password}, {headers});
+    return this.http.post('https://127.0.0.1:8000/login', user, {headers});
   }
 
   register(user: User): Observable<any> {
     const headers: { [header: string]: string | string[] } = {
       'Content-Type': 'application/json',
+      'Accept': 'application/json',
     };
-    console.log(user);
-    return this.http.post('https://127.0.0.1:8000/register', {
-      email: user.email,
-      password: user.password
-    }, {headers});
+    return this.http.post('https://127.0.0.1:8000/register', user, {headers});
   }
 }

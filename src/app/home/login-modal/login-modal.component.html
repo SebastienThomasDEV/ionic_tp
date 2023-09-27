@@ -1,0 +1,29 @@
+<ion-modal trigger="open-modal-login" (willDismiss)="confirm($event)">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-icon (click)="action('cancel')" class="pl-2 cursor-pointer text-4xl text-red-600"
+                    name="backspace-outline"></ion-icon>
+        </ion-buttons>
+        <div class="flex w-full items-center justify-center">
+          <h1 class="text-2xl font-bold">Se connecter</h1>
+        </div>
+        <ion-buttons slot="end" *ngIf="loginForm.valid">
+          <ion-icon (click)="action('confirm')" class="pr-2 cursor-pointer text-3xl text-green-600"
+                    name="checkmark-circle-outline"></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ul class="flex flex-col gap-4 pt-6" [formGroup]="loginForm">
+        <li class="p-2">
+          <ion-input name="email" errorText="Format de l'adresse email invalide" helperText="ex: johndoe@example.com" formControlName="email" class="p-3" label="Email" type="text" label-placement="floating" fill="outline" placeholder="Votre addresse email" [clearInput]="true"></ion-input>
+        </li>
+        <li class="p-2">
+          <ion-input formControlName="password" class="p-3" label="Mot de passe" type="password" label-placement="floating" fill="outline" placeholder="Votre mot de passe" [clearInput]="true"></ion-input>
+        </li>
+      </ul>
+    </ion-content>
+  </ng-template>
+</ion-modal>

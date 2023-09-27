@@ -20,7 +20,6 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(HttpClientModule),
     importProvidersFrom(IonModal),
     importProvidersFrom(ViewChild),
-
     provideRouter(routes),
   ],
 });
