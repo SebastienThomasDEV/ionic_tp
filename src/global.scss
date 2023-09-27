@@ -9,6 +9,8 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
@@ -18,9 +20,34 @@
 @import "@ionic/angular/css/typography.css";
 @import '@ionic/angular/css/display.css';
 
-/* Optional CSS utils that can be commented out */
+/*!* Optional CSS utils that can be commented out *!
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
-@import "@ionic/angular/css/flex-utils.css";
+@import "@ionic/angular/css/flex-utils.css";*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.title {
+  font-family: 'Gloock', cursive;
+}
+
+ion-button {
+  --background: #f7c634;
+  --background-hover: #f7c636;
+  --background-activated: #f7c634;
+  --background-focused: #f7c634;
+
+  --color: black;
+
+  --border-radius: 50px;
+
+  --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.4);
+
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+}
+
