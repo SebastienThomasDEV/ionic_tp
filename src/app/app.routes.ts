@@ -22,4 +22,8 @@ export const routes: Routes = [
     path: 'parameters',
     loadComponent: () => import('./parameters/parameters.page').then( m => m.ParametersPage)
   },
+  {
+    path: 'nav',
+    loadComponent: () => import('./nav/nav.page').then( m => m.NavPage)
+  },
 ];
