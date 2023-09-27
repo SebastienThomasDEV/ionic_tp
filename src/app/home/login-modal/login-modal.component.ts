@@ -26,8 +26,7 @@ export class LoginModalComponent  implements OnInit {
   loginForm = loginForm;
   constructor(
     private readonly authService: AuthService,
-    private readonly router: Router
-              ) { }
+    private readonly router: Router) { }
 
   ngOnInit() {}
 
@@ -39,7 +38,7 @@ export class LoginModalComponent  implements OnInit {
       } else {
         console.log(data.error);
       }
-    }).unsubscribe();
+    });
   }
 
   action(role: string, data?: any) {

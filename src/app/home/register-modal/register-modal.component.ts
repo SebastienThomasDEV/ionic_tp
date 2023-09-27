@@ -29,7 +29,7 @@ export class RegisterModalComponent  implements OnInit {
   ngOnInit() {}
 
   register(user: User) {
-    this.authService.register(user).subscribe().unsubscribe();
+    this.authService.register(user).subscribe();
   }
 
 
