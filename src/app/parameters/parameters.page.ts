@@ -1,21 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {IonicModule} from '@ionic/angular';
 import {users} from "../users/users";
 import {NavPage} from "../nav/nav.page";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-parameters',
   templateUrl: './parameters.page.html',
   styleUrls: ['./parameters.page.scss'],
   standalone: true,
-    imports: [IonicModule, CommonModule, FormsModule, NavPage]
+  imports: [IonicModule, CommonModule, FormsModule, NavPage]
 })
 export class ParametersPage implements OnInit {
 
   user!: any;
-  constructor() { }
+
+  constructor(private readonly router: Router) {
+  }
 
   ngOnInit() {
     // recuperation de l'id de l'utilisateur connecté
@@ -26,15 +29,14 @@ export class ParametersPage implements OnInit {
 
   logout() {
     localStorage.clear();
-    window.location.href = '/home';
+    this.router.navigateByUrl('/home');
   }
 
   clearArticles() {
     let userId = localStorage.getItem('userId')
-    if (userId) {
-      localStorage.clear();
-      localStorage.setItem('userId', userId!);
-    }
+    localStorage.clear();
+    localStorage.setItem('userId', userId!);
+    this.router.navigateByUrl('/favorites');
   }
 
 }

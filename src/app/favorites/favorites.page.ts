@@ -6,6 +6,7 @@ import {NavPage} from "../nav/nav.page";
 import { Browser } from '@capacitor/browser';
 import { Share } from '@capacitor/share';
 import Item from "../_interfaces/item";
+import {refresh} from "ionicons/icons";
 
 @Component({
   selector: 'app-favorites',
@@ -21,6 +22,10 @@ export class FavoritesPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.refresh();
+  }
+
+  refresh() {
     // recuperation des id des articles sauvegardés
     this.articlesId = Object.keys(localStorage).filter((key) => key.startsWith('article'));
     // Pour chaque article sauvegardé, on le recupere et on l'ajoute à la liste des articles sauvegardés dans le local storage
@@ -51,7 +56,7 @@ export class FavoritesPage implements OnInit {
   handleRefresh(event: any) {
     // rafrachissement de liste des articles sauvegardés en appelant la fonction ngOnInit
     setTimeout(() => {
-      this.ngOnInit();
+      this.refresh();
       event.target.complete();
     }, 2000);
 

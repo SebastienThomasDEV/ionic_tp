@@ -33,6 +33,31 @@ export const users = [
             subscribed: true
           }
         ]
+      },
+      {
+        source: 'Le Monde',
+        fluxs: [
+          {
+            url: 'https%3A%2F%2Fwww.lemonde.fr%2Fm-actu%2Frss_full.xml',
+            subject: 'Actualité',
+            subscribed: true
+          },
+          {
+            url: 'https%3A%2F%2Fwww.lemonde.fr%2Fm-actu%2Frss_full.xml',
+            subject: 'Politique',
+            subscribed: false
+          },
+          {
+            url: 'https%3A%2F%2Fwww.lemonde.fr%2Fm-actu%2Frss_full.xml',
+            subject: 'International',
+            subscribed: false
+          },
+          {
+            url: 'https%3A%2F%2Fwww.lemonde.fr%2Fm-actu%2Frss_full.xml',
+            subject: 'Société',
+            subscribed: false
+          }
+        ]
       }
     ]
   },

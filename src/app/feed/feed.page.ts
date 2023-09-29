@@ -18,12 +18,12 @@ import {users} from "../users/users";
   imports: [IonicModule, CommonModule, FormsModule, NavPage, HttpClientModule]
 })
 export class FeedPage implements OnInit {
-  items: Item[] = [];
   api_key = "ljpg7oks1bylvrwnilujce2aqgqajwfmsbsf0bc5";
 
   constructor(private readonly feedService: FeedService) {
   }
 
+  items: Item[] = [];
   user!: any;
   articlesId: string[] = [];
   saved_articles: Item[] = [];
@@ -52,6 +52,7 @@ export class FeedPage implements OnInit {
   }
 
   updateFeed() {
+    this.items = [];
     // recuperation des id des articles sauvegardés
     this.articlesId = Object.keys(localStorage).filter((key) => key.startsWith('article'));
     // Pour chaque article sauvegardé, on le recupere et on l'ajoute à la liste des articles sauvegardés
