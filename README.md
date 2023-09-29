@@ -12,14 +12,13 @@ Pour ajouter une platform (pour ce projet android):
 `ionic cap add android`
 
 Pour sync la platform (pour ce projet android):
-`ionic sync add android`
-
+`ionic cap sync android`
 
 Pour ouvrir avec android studio:
-`ionic run add android`
+`ionic cap open android`
 
 Pour run la platform (pour ce projet android):
-`ionic run add android`
+`ionic cap run android`
 
 
 ## Quand le projet est lancé:
