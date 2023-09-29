@@ -23,9 +23,7 @@ Pour run la platform (pour ce projet android):
 
 ## Quand le projet est lancé:
 
-se connecter avec l'email 'johndoe@mail.com' et le mot de passe '123456'
-___ou___
-se connecter avec l'email 'janedoe@mail.com' et le mot de passe '123456'
+connexion avec l'email 'johndoe@mail.com' et le mot de passe '123456' pour avoir un compte setup avec des fluxs enregistrer en dur
 
 on ne peut pas encore ajouter une source de flux (pas eu le temps) mais la sauvegarde est fonctionelle.
 
