@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Articles sauvegardés</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Mes article</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+    <ion-list>
+      <ion-card *ngFor="let article of articles">
+        <ion-card-header>
+          <ion-card-subtitle>{{ article.pubDate }}</ion-card-subtitle>
+          <ion-card-title>{{ article.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ article.description }}
+        </ion-card-content>
+        <ion-note>
+          <div class="flex justify-around items-center py-4">
+            <div class="flex gap-2 justify-between">
+              <ion-button (click)="openBrowser(article.link)">
+                Lire
+                <ion-icon slot="end" name="log-out-outline"></ion-icon>
+              </ion-button>
+              <ion-button (click)="share(article.link)">
+                Partager
+                <ion-icon slot="end" name="share-social-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+        </ion-note>
+      </ion-card>
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+  <app-nav></app-nav>
+</ion-footer>

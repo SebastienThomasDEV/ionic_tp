@@ -30,16 +30,6 @@ export class LoginModalComponent  implements OnInit {
 
   ngOnInit() {}
 
-  login(user: User) {
-    this.authService.login(user).subscribe((data: ApiResponse) => {
-      if (data.token) {
-        localStorage.setItem('token', data.token);
-        this.router.navigate(['/dashboard']);
-      } else {
-        console.log(data.error);
-      }
-    });
-  }
 
   action(role: string, data?: any) {
     this.loginModal.dismiss(data, role);
@@ -52,7 +42,10 @@ export class LoginModalComponent  implements OnInit {
         email: this.loginForm.value.email!,
         password: this.loginForm.value.password!
       }
-      this.login(user);
+      this.authService.login(user);
+      if (localStorage.getItem('userId') !== null) {
+        this.router.navigate(['/dashboard']);
+      }
       loginForm.reset();
     }
   }

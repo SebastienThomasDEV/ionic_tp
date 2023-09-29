@@ -28,10 +28,6 @@ export class RegisterModalComponent  implements OnInit {
 
   ngOnInit() {}
 
-  register(user: User) {
-    this.authService.register(user).subscribe();
-  }
-
 
   action(role: string, data?: any) {
     this.registerModal.dismiss(data, role);
@@ -44,7 +40,7 @@ export class RegisterModalComponent  implements OnInit {
         email: this.registerForm.value.email!,
         password: this.registerForm.value.password!
       }
-      this.register(user);
+      this.authService.register(user);
       registerForm.reset();
     }
   }

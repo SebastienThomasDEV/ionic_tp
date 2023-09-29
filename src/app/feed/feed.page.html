@@ -1,15 +1,80 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>feed</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <div class="flex items-center gap-3 pl-4">
+        <span class="text-xl">Mes Fluxs</span>
+        <ion-icon class="text-2xl" name="logo-rss"></ion-icon>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-accordion-group *ngFor="let feed of user.feeds">
+      <ion-accordion>
+        <ion-item slot="header" color="light">
+          <ion-label>{{feed.source}}</ion-label>
+        </ion-item>
+        <div class="flex flex-col gap-2" slot="content">
+          <div *ngFor="let flux of feed.fluxs" class="flex items-center gap-4 pl-6">
+            <span>
+              - {{flux.subject}}
+            </span>
+            <ion-toggle [checked]="flux.subscribed" (ionChange)="handleToggle($event, flux)"></ion-toggle>
+          </div>
+        </div>
+      </ion-accordion>
 
-<ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-</ion-content>
+    </ion-accordion-group>
+  </ion-content>
+</ion-menu>
 
-<ion-footer>
-  <app-nav></app-nav>
-</ion-footer>
+<div class="ion-page" id="main-content">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-menu-button>
+          <ion-icon class="text-3xl" name="cog-outline"></ion-icon>
+        </ion-menu-button>
+      </ion-buttons>
+      <ion-title>Mon feed</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-list>
+      <ion-card *ngFor="let article of items">
+        <ion-card-header>
+          <ion-card-subtitle>{{ article.pubDate }}</ion-card-subtitle>
+          <ion-card-title>{{ article.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ article.description }}
+        </ion-card-content>
+        <ion-note>
+          <div class="flex justify-around items-center py-4 ">
+            <div class="flex gap-2">
+              <ion-button (click)="openBrowser(article.link)">
+                Lire
+                <ion-icon slot="end" name="log-out-outline"></ion-icon>
+              </ion-button>
+              <ion-button (click)="share(article.link)">
+                Partager
+                <ion-icon slot="end" name="share-social-outline"></ion-icon>
+              </ion-button>
+            </div>
+            <ion-button (click)='saveArticle(article, user.id)'>
+              <ion-icon name="save-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-note>
+      </ion-card>
+    </ion-list>
+  </ion-content>
+  <ion-footer>
+    <app-nav></app-nav>
+  </ion-footer>
+</div>
+
+
+

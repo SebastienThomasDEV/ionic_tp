@@ -1,6 +1,0 @@
-{
-  "/rss-proxy": {
-    "target": "https://www.lemondeinformatique.fr/flux-rss/thematique/services-it/rss.xml",
-    "secure": false
-  }
-}

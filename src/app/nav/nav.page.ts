@@ -25,15 +25,15 @@ import {Router, RouterLink} from "@angular/router";
               </li>
               <li>
                   <ion-icon
-                          name="home-outline"
-                          routerLink="/dashboard"
-                          [className]="router.url === '/feed' ? 'text-yellow-600 text-3xl cursor-pointer' : 'text-3xl cursor-pointer'">
+                          name="bookmark-outline"
+                          routerLink="/favorites"
+                          [className]="router.url === '/favorites' ? 'text-yellow-600 text-3xl cursor-pointer' : 'text-3xl cursor-pointer'">
 
                   </ion-icon>
               </li>
               <li>
                   <ion-icon
-                          name="cog-outline"
+                          name="person-outline"
                           routerLink="/parameters"
                           [className]="router.url === '/parameters' ? 'text-yellow-600 text-3xl cursor-pointer' : 'text-3xl cursor-pointer'">
                   </ion-icon>
@@ -49,7 +49,6 @@ export class NavPage implements OnInit {
   constructor(public readonly router: Router) { }
 
   ngOnInit() {
-    console.log(this.router.url);
   }
 
 }

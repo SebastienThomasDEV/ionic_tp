@@ -1,15 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>parameters</ion-title>
+    <ion-title>Paramètres</ion-title>
+    <ion-title slot="end" class="text-md">{{user?.email}}</ion-title>
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">parameters</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Mon compte</ion-label>
+      <ion-button fill="outline"  (click)="logout()">
+        Déconnexion
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mes articles</ion-label>
+      <ion-button fill="outline" (click)="clearArticles()">
+        Tous supprimer
+      </ion-button>
+    </ion-item>
+
+  </ion-list>
+
+
 </ion-content>
 
 <ion-footer>
