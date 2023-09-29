@@ -1,5 +1,7 @@
 # ionic_tp
 
+(plugins capacitor: `share` et `browser`)
+
 Pour installer le projet :
 `npm i`
 
